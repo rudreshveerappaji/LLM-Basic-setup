@@ -1,0 +1,28 @@
+
+- Instructions to install and pull a free model (available) locally on your PC, and then use the model in your python code. 
+- This is so that you don't need an API key to run an LLM.
+
+source:
+https://dev.to/emmakodes_/how-to-run-llama-31-locally-in-python-using-ollama-langchain-k8k
+
+Steps:
+
+1. Download and install ollama on windows/MAC as an executable/install file from here: https://github.com/ollama/ollama
+2. Open a cmd and do "ollama pull llama3.1" or any latest and small parameter llama (since you are running on a small PC). 
+Parameter and file size of models here: https://github.com/ollama/ollama
+3. "ollama serve" - This starts the model, and these ollama models are automatically served on localhost:11434
+4. In pycharm open a new project (it creates a new venv). Next create a new python file (empty) and open terminal within pycharm, and run below commands
+python3 -m venv .venv (could be redundant if already opening new project from GUI, check)
+source .venv/bin/activate
+5. Run the following command to install langchain-ollama: pip install -U langchain-ollama
+6. Now add below simple code to your new python file, and run it
+
+from langchain_ollama import OllamaLLM
+llm = OllamaLLM(model="llama3.1")
+response = llm.invoke("The first man on the moon was ...")
+print(response)
+
+7. Expand on the above for your python code.
+
+
+
